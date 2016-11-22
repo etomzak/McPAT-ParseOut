@@ -15,7 +15,7 @@ $> git clone https://github.com/etomzak/McPAT-Utils.git utils_trunk
 
 Then add the following to the top of your perl script:
 ```
-use lib "/path/to/parseout_trunk";
+use lib "/path/to/utils_trunk";
 use McPAT::M5XML;
 use McPAT::ParseOut;
 ```
@@ -33,7 +33,7 @@ model.
 ### Usage
 
 ```
-($errors, $warnings) = m5xml($stats, $config, $template, $xml)
+($errors, $warnings) = m5xml($stats, $config, $template, $xml);
 ```
 
 `$stats` is the path to a stats.txt file, `$config` is the path to a
@@ -53,9 +53,9 @@ and counter values and then executed as Perl expressions. Some examples:
 
 ```
 <!-- config.ini replacement: -->
-<param name="number_hardware_threads" value="{config.system.cpu.numROBEntries}"/>
+<param name="ROB_size" value="{config.system.cpu.numROBEntries}"/>
 <!-- might turn into: -->
-<param name="number_hardware_threads" value="16"/>
+<param name="ROB_size" value="16"/>
 
 <!-- stats.txt replacement: -->
 <stat name="total_cycles" value="{stats.system.cpu.numCycles}"/>
